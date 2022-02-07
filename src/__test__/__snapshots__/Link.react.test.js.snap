@@ -13,3 +13,31 @@ Array [
   </a>,
 ]
 `;
+
+exports[`Link changes the class when hovered 2`] = `
+Array [
+  "Link is hovered",
+  <a
+    className="hovered"
+    href="http://www.facebook.com"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    Facebook
+  </a>,
+]
+`;
+
+exports[`Link changes the class when hovered 3`] = `
+Array [
+  "Link is normal",
+  <a
+    className="normal"
+    href="http://www.facebook.com"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    Facebook
+  </a>,
+]
+`;
