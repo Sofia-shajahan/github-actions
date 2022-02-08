@@ -9,4 +9,6 @@ jobs:
         with:
           node-version: "16"
       - run: echo "🎉 A test job was initiated by ${{ github.event_name }} event."
+      - run: npm install -g jest
+      - run: npm install -g react-test-renderer
       - run: npm test
