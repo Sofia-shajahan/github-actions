@@ -1,27 +1,35 @@
 name: Test App.
 on:
+#specifies the events on which the job should be executed.
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
+#name of the job
   build:
-
+    #specifies the runner.
     runs-on: ubuntu-latest
-
+    #specifies the strategy using build matrix 
+    #in case multiple build versions are needed.
     strategy:
       matrix:
         node-version: [16.x]
 
     steps:
+      #checks out to the runner environment.
       - uses: actions/checkout@v2
+      #specifies the name for the step.
       - name: Use Node.js ${{ matrix.node-version }}
+      #setup the node environment with the version specified.
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
       - run:  echo "🎉 A test job was initiated by ${{ github.event_name }} event."
+      #installs dependencies
       - name: Install dependencies
         run: npm ci
+      #runs test case
       - name: Run test cases
         run: npm test
